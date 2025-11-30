@@ -7,18 +7,19 @@ type Animal = {
   sound: string;
   color: string;
   name: string;
+  audioUrl: string;
 };
 
 const animals: Animal[] = [
-  { id: '1', emoji: '🐶', sound: 'Гав-гав!', color: 'bg-amber-400', name: 'Собачка' },
-  { id: '2', emoji: '🐱', sound: 'Мяу-мяу!', color: 'bg-orange-400', name: 'Котик' },
-  { id: '3', emoji: '🐮', sound: 'Му-у-у!', color: 'bg-pink-400', name: 'Коровка' },
-  { id: '4', emoji: '🐷', sound: 'Хрю-хрю!', color: 'bg-rose-400', name: 'Свинка' },
-  { id: '5', emoji: '🐸', sound: 'Ква-ква!', color: 'bg-green-400', name: 'Лягушка' },
-  { id: '6', emoji: '🐔', sound: 'Ко-ко-ко!', color: 'bg-yellow-400', name: 'Курочка' },
-  { id: '7', emoji: '🦆', sound: 'Кря-кря!', color: 'bg-blue-400', name: 'Уточка' },
-  { id: '8', emoji: '🐑', sound: 'Бе-е-е!', color: 'bg-slate-300', name: 'Овечка' },
-  { id: '9', emoji: '🐴', sound: 'И-го-го!', color: 'bg-amber-600', name: 'Лошадка' }
+  { id: '1', emoji: '🐶', sound: 'Гав-гав!', color: 'bg-amber-400', name: 'Собачка', audioUrl: 'https://cdn.freesound.org/previews/362/362195_5121236-lq.mp3' },
+  { id: '2', emoji: '🐱', sound: 'Мяу-мяу!', color: 'bg-orange-400', name: 'Котик', audioUrl: 'https://cdn.freesound.org/previews/634/634822_12366888-lq.mp3' },
+  { id: '3', emoji: '🐮', sound: 'Му-у-у!', color: 'bg-pink-400', name: 'Коровка', audioUrl: 'https://cdn.freesound.org/previews/58/58277_634166-lq.mp3' },
+  { id: '4', emoji: '🐷', sound: 'Хрю-хрю!', color: 'bg-rose-400', name: 'Свинка', audioUrl: 'https://cdn.freesound.org/previews/387/387234_1676145-lq.mp3' },
+  { id: '5', emoji: '🐸', sound: 'Ква-ква!', color: 'bg-green-400', name: 'Лягушка', audioUrl: 'https://cdn.freesound.org/previews/521/521603_7037-lq.mp3' },
+  { id: '6', emoji: '🐔', sound: 'Ко-ко-ко!', color: 'bg-yellow-400', name: 'Курочка', audioUrl: 'https://cdn.freesound.org/previews/610/610493_1015240-lq.mp3' },
+  { id: '7', emoji: '🦆', sound: 'Кря-кря!', color: 'bg-blue-400', name: 'Уточка', audioUrl: 'https://cdn.freesound.org/previews/506/506053_1648170-lq.mp3' },
+  { id: '8', emoji: '🐑', sound: 'Бе-е-е!', color: 'bg-slate-300', name: 'Овечка', audioUrl: 'https://cdn.freesound.org/previews/410/410366_6045088-lq.mp3' },
+  { id: '9', emoji: '🐴', sound: 'И-го-го!', color: 'bg-amber-600', name: 'Лошадка', audioUrl: 'https://cdn.freesound.org/previews/66/66717_634166-lq.mp3' }
 ];
 
 const shapes = [
@@ -37,6 +38,10 @@ const Index = () => {
   const handleAnimalClick = (animal: Animal) => {
     setSelectedAnimal(animal);
     setScore(prev => prev + 1);
+    
+    const audio = new Audio(animal.audioUrl);
+    audio.volume = 0.6;
+    audio.play().catch(err => console.log('Audio play error:', err));
     
     setTimeout(() => {
       setSelectedAnimal(null);
