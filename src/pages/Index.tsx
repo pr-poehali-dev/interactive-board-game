@@ -19,7 +19,13 @@ const animals: Animal[] = [
   { id: '6', emoji: '🐔', sound: 'Ко-ко-ко!', color: 'bg-yellow-400', name: 'Курочка', audioUrl: 'https://cdn.freesound.org/previews/610/610493_1015240-lq.mp3' },
   { id: '7', emoji: '🦆', sound: 'Кря-кря!', color: 'bg-blue-400', name: 'Уточка', audioUrl: 'https://cdn.freesound.org/previews/506/506053_1648170-lq.mp3' },
   { id: '8', emoji: '🐑', sound: 'Бе-е-е!', color: 'bg-slate-300', name: 'Овечка', audioUrl: 'https://cdn.freesound.org/previews/410/410366_6045088-lq.mp3' },
-  { id: '9', emoji: '🐴', sound: 'И-го-го!', color: 'bg-amber-600', name: 'Лошадка', audioUrl: 'https://cdn.freesound.org/previews/66/66717_634166-lq.mp3' }
+  { id: '9', emoji: '🐴', sound: 'И-го-го!', color: 'bg-amber-600', name: 'Лошадка', audioUrl: 'https://cdn.freesound.org/previews/66/66717_634166-lq.mp3' },
+  { id: '10', emoji: '🦁', sound: 'Р-р-р!', color: 'bg-orange-600', name: 'Львёнок', audioUrl: 'https://cdn.freesound.org/previews/485/485281_8561196-lq.mp3' },
+  { id: '11', emoji: '🐘', sound: 'Ту-у-у!', color: 'bg-gray-400', name: 'Слонёнок', audioUrl: 'https://cdn.freesound.org/previews/490/490493_10341326-lq.mp3' },
+  { id: '12', emoji: '🐒', sound: 'У-у-а!', color: 'bg-amber-500', name: 'Обезьянка', audioUrl: 'https://cdn.freesound.org/previews/329/329026_3248244-lq.mp3' },
+  { id: '13', emoji: '🐺', sound: 'А-у-у!', color: 'bg-gray-600', name: 'Волчок', audioUrl: 'https://cdn.freesound.org/previews/418/418174_6406134-lq.mp3' },
+  { id: '14', emoji: '🐻', sound: 'У-р-р!', color: 'bg-amber-700', name: 'Мишка', audioUrl: 'https://cdn.freesound.org/previews/552/552045_10398852-lq.mp3' },
+  { id: '15', emoji: '🐼', sound: 'Мя-я-у!', color: 'bg-slate-400', name: 'Панда', audioUrl: 'https://cdn.freesound.org/previews/634/634822_12366888-lq.mp3' }
 ];
 
 const shapes = [
@@ -40,7 +46,7 @@ const Index = () => {
     setScore(prev => prev + 1);
     
     const audio = new Audio(animal.audioUrl);
-    audio.volume = 0.6;
+    audio.volume = 0.8;
     audio.play().catch(err => console.log('Audio play error:', err));
     
     setTimeout(() => {
